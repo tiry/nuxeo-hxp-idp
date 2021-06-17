@@ -1,0 +1,103 @@
+{
+   "Logging":{
+      "LogLevel":{
+         "Default":"Information",
+         "Microsoft":"Warning",
+         "Microsoft.Hosting.Lifetime":"Information"
+      }
+   },
+
+   "AllowedHosts":"*",
+
+   "Clients":[
+      {
+         "ClientId":"nuxeo-client",
+	 "ClientName": "Nuxeo Repository",
+         "AllowedScopes":[
+            "profile",
+            "test-api",
+	    "openid",
+	    "email"
+         ],
+	 "AllowedGrantTypes": [ "authorization_code", "refresh_token" ],
+         "ClientSecrets":[
+            {
+               "Value":"K7gNU3sdo+OL0wNhqoVWhr3g6s1xYv72ol/pe/Unols=",
+	       "Type": "SharedSecret"
+            }
+         ],
+	 "RedirectUris": [
+           "http://127.0.0.1:8080/nuxeo/ui/?provider=HxPIDP&forceAnonymousLogin=true"
+         ]
+      }
+   ],
+
+   "Users":[
+      {
+         "AccountId":"5714d708-b092-7430-3f8d-583f4bdca247",
+         "UserName":"tiry",
+         "Password":"password",
+         "Email":"tiry.delprat@hyland.com",
+         "Claims":[
+            {
+               "Type":"name",
+               "Value":"tiry"
+            },
+            {
+               "Type":"given_name",
+               "Value":"Thierry"
+            },
+            {
+               "Type":"family_name",
+               "Value":"Delprat"
+            },
+            {
+               "Type":"email",
+               "Value":"tiry.delprat@hyland.com"
+            },
+            {
+               "Type":"hxp_account",
+               "Value":"5714d708-b092-7430-3f8d-583f4bdca247"
+            },
+            {
+               "Type":"hxp_subscription",
+               "Value":"5714d708efcafb48aa21bc94e7eebb2b"
+            }
+         ]
+      },
+      {
+         "AccountId":"6714d708-b092-7430-3f8d-583f4bdca247",
+         "UserName":"jchan",
+         "Password":"password",
+         "Email":"jacky.chan@hyland.com",
+         "Claims":[
+            {
+               "Type":"name",
+               "Value":"jchan"
+            },
+            {
+               "Type":"given_name",
+               "Value":"Jacky"
+            },
+            {
+               "Type":"family_name",
+               "Value":"Chan"
+            },
+            {
+               "Type":"email",
+               "Value":"jacky.chan@hyland.com"
+            },
+            {
+               "Type":"hxp_account",
+               "Value":"6714d708-b092-7430-3f8d-583f4bdca247"
+            },
+            {
+               "Type":"hxp_subscription",
+               "Value":"6714d708efcafb48aa21bc94e7eebb2b"
+            }
+         ]
+      }
+
+   ]
+
+}

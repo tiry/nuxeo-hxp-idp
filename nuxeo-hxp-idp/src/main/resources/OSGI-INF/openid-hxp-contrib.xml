@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<component name="org.nuxeo.ecm.platform.oauth2.openid.hxp">
+
+  <require>org.nuxeo.ecm.platform.oauth2.openid.OpenIDConnectProviderRegistry</require>
+  <require>org.nuxeo.usermapper.service.UserMapperComponent</require>
+  <require>org.nuxeo.ecm.platform.oauth2.openid.auth.contrib</require>
+
+  <extension
+    target="org.nuxeo.ecm.platform.oauth2.openid.OpenIDConnectProviderRegistry"
+    point="providers">
+    
+    <provider>
+      <name>HxPIDP</name>
+      <label>HxP IDP</label>
+      <description>Login with HxP</description>
+      
+      <authorizationServerURL>${org.nuxeo.hxp.idp.endpoint}/connect/authorize</authorizationServerURL>
+      <tokenServerURL>${org.nuxeo.hxp.idp.endpoint}/connect/token</tokenServerURL>
+      <userInfoURL>${org.nuxeo.hxp.idp.endpoint}/connect/userinfo</userInfoURL>
+          
+      <userInfoClass>org.nuxeo.hxp.idp.HxPUserInfo</userInfoClass>
+      <scope>openid profile email</scope>
+      <icon>/img/hyland_icon.png</icon>
+      
+      <clientId>${org.nuxeo.hxp.idp.client.id}</clientId>  
+      <clientSecret>${org.nuxeo.hxp.idp.client.secret}</clientSecret>
+       <!-- echo -n secret | openssl dgst -binary -sha256 | base64 -->
+      
+      <authenticationMethod>bearer</authenticationMethod>
+      
+      <userResolverClass>org.nuxeo.hxp.idp.HxPUserResolver</userResolverClass>
+      
+      <!-- 
+      <userMapperName>hxp_mapper</userMapperName>
+      -->
+      
+    </provider>
+    
+  </extension>
+
+    <extension target="org.nuxeo.usermapper.service.UserMapperComponent"
+               point="mapper">
+        <mapper name="hxp_mapper" type="js">
+            <mapperScript>
+                searchAttributes.put("username", userObject.name);
+                userAttributes.put("firstName", userObject.givenName);
+                userAttributes.put("lastName", userObject.familyName);
+                userAttributes.put("email", userObject.email);
+            </mapperScript>
+        </mapper>
+
+    </extension>
+
+</component>
