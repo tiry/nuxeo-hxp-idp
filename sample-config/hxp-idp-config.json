@@ -17,7 +17,8 @@
             "profile",
             "test-api",
 	    "openid",
-	    "email"
+	    "email",
+       "memberOf"
          ],
 	 "AllowedGrantTypes": [ "authorization_code", "refresh_token" ],
          "ClientSecrets":[
@@ -99,5 +100,18 @@
       }
 
    ]
+   ,
+   "UserGroups": [
+    {
+      "AccountId": "5714d708-b092-7430-3f8d-583f4bdca247",
+      "Name": "Members",
+      "Users": [ "jchan", "tiry" ]
+    },
+    {
+      "AccountId": "5714d708-b092-7430-3f8d-583f4bdca247",
+      "Name": "Admins",
+      "Users": [ "tiry" ]
+    }
+  ]
 
 }
