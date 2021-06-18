@@ -12,7 +12,7 @@
     
     <provider>
       <name>HxPIDP</name>
-      <label>HxP IDP</label>
+      <label>HxP</label>
       <description>Login with HxP</description>
       
       <authorizationServerURL>${org.nuxeo.hxp.idp.endpoint}/connect/authorize</authorizationServerURL>
@@ -20,7 +20,7 @@
       <userInfoURL>${org.nuxeo.hxp.idp.endpoint}/connect/userinfo</userInfoURL>
           
       <userInfoClass>org.nuxeo.hxp.idp.HxPUserInfo</userInfoClass>
-      <scope>openid profile email</scope>
+      <scope>openid profile email memberOf</scope>
       <icon>/img/hyland_icon.png</icon>
       
       <clientId>${org.nuxeo.hxp.idp.client.id}</clientId>  
