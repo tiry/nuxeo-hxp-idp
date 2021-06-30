@@ -1,141 +1,178 @@
 {
-   "ApiResources": [
-     {
-       "Name": "iam"
-     }
-   ],
-   "Clients": [
-     {
-       "ClientId": "nuxeo-client",
-       "ClientName": "Nuxeo Repository",
-       "AllowedScopes": [
-         "profile",
-         "test-api",
-         "openid",
-         "email",
-         "memberOf"
-       ],
-       "AllowedGrantTypes": [ "authorization_code", "refresh_token", "password" ],
-       "ClientSecrets": [
-         {
-           "Value": "K7gNU3sdo+OL0wNhqoVWhr3g6s1xYv72ol/pe/Unols=",
-           "Type": "SharedSecret"
-         }
-       ],
-       "RedirectUris": [
-         "http://127.0.0.1:8080/nuxeo/ui/?provider=HxPIDP&forceAnonymousLogin=true"
-       ]
-     }
-   ],
-   "Users": [
-     {
-       "AccountId": "5714d708-b092-7430-3f8d-583f4bdca247",
-       "UserName": "tiry",
-       "Password": "password",
-       "Email": "tiry.delprat@hyland.com",
-       "Claims": [
-         {
-           "Type": "name",
-           "Value": "tiry"
-         },
-         {
-           "Type": "given_name",
-           "Value": "Thierry"
-         },
-         {
-           "Type": "family_name",
-           "Value": "Delprat"
-         },
-         {
-           "Type": "email",
-           "Value": "tiry.delprat@hyland.com"
-         },
-         {
-           "Type": "hxp_account",
-           "Value": "5714d708-b092-7430-3f8d-583f4bdca247"
-         },
-         {
-           "Type": "hxp_subscription",
-           "Value": "5714d708efcafb48aa21bc94e7eebb2b"
-         }
-       ]
-     },
-     {
-       "AccountId": "6714d708-b092-7430-3f8d-583f4bdca247",
-       "UserName": "jchan",
-       "Password": "password",
-       "Email": "jacky.chan@hyland.com",
-       "Claims": [
-         {
-           "Type": "name",
-           "Value": "jchan"
-         },
-         {
-           "Type": "given_name",
-           "Value": "Jacky"
-         },
-         {
-           "Type": "family_name",
-           "Value": "Chan"
-         },
-         {
-           "Type": "email",
-           "Value": "jacky.chan@hyland.com"
-         },
-         {
-           "Type": "hxp_account",
-           "Value": "6714d708-b092-7430-3f8d-583f4bdca247"
-         },
-         {
-           "Type": "hxp_subscription",
-           "Value": "6714d708efcafb48aa21bc94e7eebb2b"
-         }
-       ]
-     }
-   ],
-   "UserGroups": [
-     {
-       "AccountId": "5714d708-b092-7430-3f8d-583f4bdca247",
-       "Name": "Members",
-       "Users": [ "jchan", "tiry" ]
-     },
-     {
-       "AccountId": "5714d708-b092-7430-3f8d-583f4bdca247",
-       "Name": "Admins",
-       "Users": [ "tiry" ]
-     }
-   ],
-   "Permissions": [
-     {
-       "ApiResourceName": "iam",
-       "Key": "iam.user.list",
-       "Name": "Retrieve user account list"
-     },
-     {
-       "ApiResourceName": "iam",
-       "Key": "iam.usergroup.list",
-       "Name": "Retrieve user group list"
-     }
-   ],
-   "Roles": [
-     {
-       "AppKey": "admin",
-       "Name": "View Users",
-       "RolePermissions": [
-         "iam.user.list",
-         "iam.usergroup.list"
-       ],
-       "AppliedRoleUserGroups": [
-         {
-           "GroupAccountId": "5714d708-b092-7430-3f8d-583f4bdca247",
-           "GroupName": "Members",
-           "AppliedAuthorizationContext": {
-             "ContextType": "account",
-             "ContextId": "5714d708-b092-7430-3f8d-583f4bdca247"
-           }
-         }
-       ]
-     }
-   ]
- }
- 
+  "ApiResources": [
+    {
+      "Name": "iam"
+    }
+  ],
+  "Clients": [
+    {
+      "ClientId": "nuxeo-client",
+      "ClientName": "Nuxeo Repository",
+      "AllowedScopes": [
+        "profile",
+        "test-api",
+        "openid",
+        "email",
+        "memberOf"
+      ],
+      "AllowedGrantTypes": [ "authorization_code", "refresh_token", "password" ],
+      "ClientSecrets": [
+        {
+          "Value": "K7gNU3sdo+OL0wNhqoVWhr3g6s1xYv72ol/pe/Unols=",
+          "Type": "SharedSecret"
+        }
+      ],
+      "RedirectUris": [
+        "http://127.0.0.1:8080/nuxeo/ui/?provider=HxPIDP&forceAnonymousLogin=true",
+        "http://localhost:8081"
+      ],
+      "AllowedCorsOrigins": [
+        "http://localhost:8081"
+      ],
+      "RequireClientSecret": false,
+      "RequireConsent": false
+    }
+  ],
+  "Users": [
+    {
+      "AccountId": "5714d708-b092-7430-3f8d-583f4bdca247",
+      "UserName": "tiry",
+      "Password": "password",
+      "Email": "tiry.delprat@hyland.com",
+      "Claims": [
+        {
+          "Type": "name",
+          "Value": "tiry"
+        },
+        {
+          "Type": "given_name",
+          "Value": "Thierry"
+        },
+        {
+          "Type": "family_name",
+          "Value": "Delprat"
+        },
+        {
+          "Type": "email",
+          "Value": "tiry.delprat@hyland.com"
+        },
+        {
+          "Type": "hxp_account",
+          "Value": "5714d708-b092-7430-3f8d-583f4bdca247"
+        },
+        {
+          "Type": "hxp_subscription",
+          "Value": "5714d708efcafb48aa21bc94e7eebb2b"
+        }
+      ]
+    },
+    {
+      "AccountId": "5714d708-b092-7430-3f8d-583f4bdca247",
+      "UserName": "nelson",
+      "Password": "password",
+      "Email": "nelson.silva@hyland.com",
+      "Claims": [
+        {
+          "Type": "name",
+          "Value": "nelson"
+        },
+        {
+          "Type": "given_name",
+          "Value": "Nelson"
+        },
+        {
+          "Type": "family_name",
+          "Value": "Silva"
+        },
+        {
+          "Type": "email",
+          "Value": "nelson.silva@hyland.com"
+        },
+        {
+          "Type": "hxp_account",
+          "Value": "5714d708-b092-7430-3f8d-583f4bdca247"
+        },
+        {
+          "Type": "hxp_subscription",
+          "Value": "5714d708efcafb48aa21bc94e7eebb2b"
+        }
+      ]
+    },
+    {
+      "AccountId": "5714d708-b092-7430-3f8d-583f4bdca247",
+      "UserName": "jchan",
+      "Password": "password",
+      "Email": "jacky.chan@hyland.com",
+      "Claims": [
+        {
+          "Type": "name",
+          "Value": "jchan"
+        },
+        {
+          "Type": "given_name",
+          "Value": "Jacky"
+        },
+        {
+          "Type": "family_name",
+          "Value": "Chan"
+        },
+        {
+          "Type": "email",
+          "Value": "jacky.chan@hyland.com"
+        },
+        {
+          "Type": "hxp_account",
+          "Value": "5714d708-b092-7430-3f8d-583f4bdca247"
+        },
+        {
+          "Type": "hxp_subscription",
+          "Value": "6714d708efcafb48aa21bc94e7eebb2b"
+        }
+      ]
+    }
+  ],
+  "UserGroups": [
+    {
+      "AccountId": "5714d708-b092-7430-3f8d-583f4bdca247",
+      "Name": "Members",
+      "Users": [ "jchan", "tiry", "nelson" ]
+    },
+    {
+      "AccountId": "5714d708-b092-7430-3f8d-583f4bdca247",
+      "Name": "Admins",
+      "Users": [ "tiry", "nelson" ]
+    }
+  ],
+  "Permissions": [
+    {
+      "ApiResourceName": "iam",
+      "Key": "iam.user.list",
+      "Name": "Retrieve user account list"
+    },
+    {
+      "ApiResourceName": "iam",
+      "Key": "iam.usergroup.list",
+      "Name": "Retrieve user group list"
+    }
+  ],
+  "Roles": [
+    {
+      "AppKey": "admin",
+      "Name": "View Users",
+      "RolePermissions": [
+        "iam.user.list",
+        "iam.usergroup.list"
+      ],
+      "AppliedRoleUserGroups": [
+        {
+          "GroupAccountId": "5714d708-b092-7430-3f8d-583f4bdca247",
+          "GroupName": "Members",
+          "AppliedAuthorizationContext": {
+            "ContextType": "account",
+            "ContextId": "5714d708-b092-7430-3f8d-583f4bdca247"
+          }
+        }
+      ]
+    }
+  ]
+}

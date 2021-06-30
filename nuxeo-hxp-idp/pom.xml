@@ -24,6 +24,11 @@
       <artifactId>nuxeo-usermapper</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>com.auth0</groupId>
+      <artifactId>jwks-rsa</artifactId>
+    </dependency>
+
   </dependencies>
 
 </project>

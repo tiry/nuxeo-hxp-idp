@@ -18,7 +18,7 @@
  *
  */
 
-package org.nuxeo.hxp.idp;
+package org.nuxeo.hxp.idp.openid;
 
 import org.nuxeo.ecm.core.api.DocumentModel;
 import org.nuxeo.ecm.core.api.NuxeoPrincipal;
@@ -31,14 +31,14 @@ import org.nuxeo.usermapper.service.UserMapperService;
 
 /**
  * Dedicated UserResolver class for 2 reasons:
- * 
+ *
  *  - default implementation is broken if nuxeo.oauth.auth.create.user is not set to true
  *  - this allows to add java logic if needed later
- * 
+ *
  */
 public class HxPUserResolver extends UserResolver {
 
-    protected final String mapperName = "hxp_mapper";
+    protected final String mapperName = "hxp_openid_mapper";
 
     public HxPUserResolver(OpenIDConnectProvider provider) {
         super(provider);
