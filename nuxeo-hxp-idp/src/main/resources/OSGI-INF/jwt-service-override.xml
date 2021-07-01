@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- Overriding JWTService to add RS256 support -->
+<component name="org.nuxeo.ecm.jwt.hxp.JWTService">
+  <require>org.nuxeo.ecm.jwt.JWTService</require>
+
+  <implementation class="org.nuxeo.hxp.idp.jwt.JWTServiceImpl" />
+  <service>
+    <provide interface="org.nuxeo.ecm.jwt.JWTService" />
+  </service>
+
+  <extension-point name="configuration">
+    <object class="org.nuxeo.hxp.idp.jwt.JWTServiceConfigurationDescriptor" />
+  </extension-point>
+
+</component>

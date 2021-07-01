@@ -6,4 +6,6 @@ Bundle-Version: 1.0.0
 Bundle-Name: nuxeo-hxp-idp-plugin
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.nuxeo.hxp.nuxeo-hxp-idp-plugin;singleton=true
-Nuxeo-Component: OSGI-INF/openid-hxp-contrib.xml
+Nuxeo-Component: OSGI-INF/openid-hxp-contrib.xml,
+  OSGI-INF/jwt-service-override.xml,
+  OSGI-INF/jwt-hxp-contrib.xml

@@ -1,0 +1,80 @@
+<html>
+  <head></head>
+  <body>
+    <button id="login">Login</button>
+    <script type="module">
+      const BASE_URL = 'http://localhost:5002/idp/connect';
+      const CLIENT_ID = 'nuxeo-client';
+      const SCOPES = 'openid email';
+
+      const NUXEO_URL = 'http://localhost:8080/nuxeo';
+
+      const urlFor = (url, params = {}) => `${url}?${new URLSearchParams(params)}`;
+
+      const redirect = (url) => window.location = url;
+
+      const startAuthorization = () => redirect(
+        urlFor(`${BASE_URL}/authorize`, {
+          client_id: CLIENT_ID,
+          redirect_uri: window.location.origin,
+          scope: SCOPES,
+          response_type: 'code',
+        })
+      );
+
+      const fetchAccessToken = (code, session_state) =>
+        new Promise((resolve, reject) =>
+          fetch(`${BASE_URL}/token`, {
+            method: 'POST',
+            body: new URLSearchParams({
+              code,
+              client_id: CLIENT_ID,
+              redirect_uri: window.location.origin,
+              grant_type: 'authorization_code',
+              scope: SCOPES,
+            }).toString(),
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+          })
+            .then((res) => res.json())
+            .then((token) => {
+              if (token.error) {
+                return reject(token.error);
+              }
+              return resolve(token.access_token);
+            })
+            .catch((e) => reject(e))
+        );
+
+      login.addEventListener('click', startAuthorization);
+
+      const getQueryParameters = () => {
+        const queryParams = {};
+        const href = window.location.href;
+        if (href.indexOf('?')) {
+          const params = href.substring(href.indexOf('?') + 1).split('&');
+          params.forEach((e) => {
+            const a = e.split('=');
+            queryParams[a[0]] = a[1];
+          })
+        }
+        return queryParams;
+      };
+
+      const { code, session_state } = getQueryParameters();
+      if (code) {
+        fetchAccessToken(code, session_state)
+        .then((token) => fetch(`${NUXEO_URL}/api/v1/me`, {
+          headers: { 'Authorization': `Bearer ${token}` },
+        }))
+        .then((res) => res.json())
+        .then((user) => {
+          const { firstName, lastName } = user.properties;
+          login.style.display = 'none';
+          document.body.append(`Hi ${firstName} ${lastName} 👋`);
+        });
+      }
+    </script>
+  </body>
+</html>

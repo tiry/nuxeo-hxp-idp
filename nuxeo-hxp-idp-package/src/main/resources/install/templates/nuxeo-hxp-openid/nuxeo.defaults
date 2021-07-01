@@ -1,4 +1,9 @@
 # default IDP endpoint config
 org.nuxeo.hxp.idp.endpoint=http://127.0.0.1:5002/idp
+org.nuxeo.hxp.idp.directory=http://127.0.0.1:5002/directory/graphql
 org.nuxeo.hxp.idp.client.id=nuxeo-client
 org.nuxeo.hxp.idp.client.secret=secret
+
+nuxeo.jwt.secret=secret
+nuxeo.jwt.algorithm=RS256
+nuxeo.jwt.jwksUrl=http://127.0.0.1:5002/idp/.well-known/openid-configuration/jwks

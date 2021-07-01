@@ -9,39 +9,39 @@
   <extension
     target="org.nuxeo.ecm.platform.oauth2.openid.OpenIDConnectProviderRegistry"
     point="providers">
-    
+
     <provider>
       <name>HxPIDP</name>
       <label>HxP</label>
       <description>Login with HxP</description>
-      
+
       <authorizationServerURL>${org.nuxeo.hxp.idp.endpoint}/connect/authorize</authorizationServerURL>
       <tokenServerURL>${org.nuxeo.hxp.idp.endpoint}/connect/token</tokenServerURL>
       <userInfoURL>${org.nuxeo.hxp.idp.endpoint}/connect/userinfo</userInfoURL>
-          
-      <userInfoClass>org.nuxeo.hxp.idp.HxPUserInfo</userInfoClass>
+
+      <userInfoClass>org.nuxeo.hxp.idp.openid.HxPOpenIDUserInfo</userInfoClass>
       <scope>openid profile email memberOf</scope>
       <icon>/img/hyland_icon.png</icon>
-      
-      <clientId>${org.nuxeo.hxp.idp.client.id}</clientId>  
+
+      <clientId>${org.nuxeo.hxp.idp.client.id}</clientId>
       <clientSecret>${org.nuxeo.hxp.idp.client.secret}</clientSecret>
        <!-- echo -n secret | openssl dgst -binary -sha256 | base64 -->
-      
+
       <authenticationMethod>bearer</authenticationMethod>
-      
-      <userResolverClass>org.nuxeo.hxp.idp.HxPUserResolver</userResolverClass>
-      
-      <!-- 
+
+      <userResolverClass>org.nuxeo.hxp.idp.openid.HxPUserResolver</userResolverClass>
+
+      <!--
       <userMapperName>hxp_mapper</userMapperName>
       -->
-      
+
     </provider>
-    
+
   </extension>
 
     <extension target="org.nuxeo.usermapper.service.UserMapperComponent"
                point="mapper">
-        <mapper name="hxp_mapper" type="js">
+        <mapper name="hxp_openid_mapper" type="js">
             <mapperScript>
                 searchAttributes.put("username", userObject.name);
                 userAttributes.put("firstName", userObject.givenName);

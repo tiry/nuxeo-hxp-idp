@@ -45,6 +45,11 @@
         <artifactId>nuxeo-hxp-idp-package</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>com.auth0</groupId>
+        <artifactId>jwks-rsa</artifactId>
+        <version>0.18.0</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 

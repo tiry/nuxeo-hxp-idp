@@ -16,17 +16,58 @@
  */
 package org.nuxeo.hxp.idp;
 
-import org.nuxeo.ecm.platform.oauth2.openid.auth.DefaultOpenIDUserInfo;
+import java.io.Serializable;
+import java.util.Set;
 
-import com.google.api.client.util.Key;
+public class HxPUserInfo {
 
-public class HxPUserInfo extends DefaultOpenIDUserInfo {
+    protected String firstName;
 
-    @Key("hxp_account")
-    protected String hxp_account;
+    protected String lastName;
 
-	public String getHxP_Account() {
-		return hxp_account;
-	}
+    protected String username;
 
+    protected Set<String> groups;
+
+    protected String email;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Set<String> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(Set<String> groups) {
+        this.groups = groups;
+    }
+
+    public Serializable getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 }

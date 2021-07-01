@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.ecm.jwt.hxp.config">
+
+  <extension target="org.nuxeo.ecm.jwt.hxp.JWTService" point="configuration">
+    <configuration>
+      <defaultTTL>${nuxeo.jwt.defaultTTL}</defaultTTL>
+      <secret>${nuxeo.jwt.secret}</secret>
+      <algorithm>${nuxeo.jwt.algorithm}</secret>
+      <jwksUrl>${nuxeo.jwt.jwksUrl}</jwksUrl>
+    </configuration>
+  </extension>
+
+</component>
