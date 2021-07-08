@@ -5,7 +5,7 @@
     <configuration>
       <defaultTTL>${nuxeo.jwt.defaultTTL}</defaultTTL>
       <secret>${nuxeo.jwt.secret}</secret>
-      <algorithm>${nuxeo.jwt.algorithm}</secret>
+      <algorithm>${nuxeo.jwt.algorithm}</algorithm>
       <jwksUrl>${nuxeo.jwt.jwksUrl}</jwksUrl>
     </configuration>
   </extension>
