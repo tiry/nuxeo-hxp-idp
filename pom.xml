@@ -23,6 +23,7 @@
   <modules>
     <module>nuxeo-hxp-idp</module>
     <module>nuxeo-hxp-idp-package</module>
+    <module>docker</module>
   </modules>
 
   <scm />
